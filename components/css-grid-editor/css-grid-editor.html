@@ -1,24 +1,141 @@
 <style>
+    * {
+        padding: 0;
+        margin: 0;
+        text-decoration: none;
+        list-style: none;
+        box-sizing: border-box;
+    }
+
+    /* Header Styling */
+    .header {
+        height: 48px;
+    }
+
+    label.logo {
+        color: aliceblue;
+        background-color: #0276C2;
+        font-size: 25px;
+        line-height: 30px;
+        padding: 0 100px;
+        padding-left: 15px;
+        padding-right: 20px;
+        font-weight: bold;
+    }
+
+    #desktop {
+        background-color: #0276C2;
+        color: #FFFFFF;
+    }
+
+
+    nav ul {
+        float: right;
+        margin-right: 20px;
+    }
+
+    nav ul li {
+        display: inline-block;
+        line-height: 32px;
+        margin: 0 5px;
+    }
+
     css-grid-editor {
         display: block;
         border: solid silver 1px;
     }
 
-    css-grid-editor .header {}
+    css-grid-editor.header {
+        height: 48px;
+        width: 100%;
+        background-color: #0276C2;
+        border: 10px;
+    }
 
-    css-grid-editor .grid {}
+    css-grid-editor.grid {
+        border: 10px;
+        height: 80%;
+        width: 100%;
+        background-color: blueviolet;
 
-    css-grid-editor .footer {}
+    }
+
+    /* Body Styling */
+    .grid {
+        background-color: #DADADA;
+        height: 80%;
+        width: 100%;
+    }
+
+
+    /* Footer Styling */
+    css-grid-editor.footer {
+        height: 60px;
+        width: 100%;
+        border: 10px;
+        float: right;
+        margin: 20px;
+    }
+
+    .footer {
+        background-color: #FFFFFF;
+        height: 48px;
+        margin-top: 32px;
+
+    }
+
+    #cancel {
+        height: 32px;
+        /* width: 60px; */
+        text-align: center;
+    }
+
+    #apply {
+        background-color: #272c37;
+        color: #FFFFFF;
+        height: 32px;
+        /* width: 60px; */
+        text-align: center;
+    }
 </style>
 
 <div class="header" role="toolbar">
-    header1
+    <nav>
+        <label class="logo">Layout Grid</label>
+        <ul>
+            <button id="desktop">
+                <li>Desktop</li>
+            </button>
+            <button id="mobile">
+                <li>Mobile</li>
+            </button>
+            <button id="columns">
+                <li>Columns</li>
+            </button>
+            <button id="rows">
+                <li>Rows</li>
+            </button>
+            <button id="reset">
+                <li>Reset</li>
+            </button>
+
+        </ul>
+    </nav>
 </div>
 
-<div class="grid">
+<div class="grid" id="grid">
     center
 </div>
 
 <div class="footer" role="toolbar">
-    footer
+    <nav>
+        <ul>
+            <button id="cancel">
+                <li>Cancel</li>
+            </button>
+            <button id="apply">
+                <li>Apply</li>
+            </button>
+        </ul>
+    </nav>
 </div>
