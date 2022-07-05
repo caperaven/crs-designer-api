@@ -18,6 +18,11 @@
       "hasStyle": true
     },
     {
+      "title": "CSS Grid",
+      "hash": "#css-grid",
+      "view": "css-grid"
+    },
+    {
       "title": "404",
       "hash": "#404",
       "view": "404",
