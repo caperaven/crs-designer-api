@@ -1,18 +1,55 @@
 <style>
-    * {
-        padding: 0;
-        margin: 0;
-        text-decoration: none;
-        list-style: none;
-        box-sizing: border-box;
-    }
-
     /* Header Styling */
-    .header {
-        height: 48px;
+
+    css-grid-editor button {
+        float: right;
+        display: flexbox;
+        flex-direction: row;
     }
 
-    label.logo {
+    css-grid-editor div #rows {
+        display: flexbox;
+        flex-direction: row;
+    }
+
+    css-grid-editor div #columns {
+        display: flexbox;
+        flex-direction: row;
+    }
+
+    css-grid-editor #reset {
+        /* float: right; */
+        padding: 0;
+        border: none;
+        background: none;
+        color: #0276C2;
+    }
+
+    css-grid-editor #properties {
+        /* float: right; */
+        background-color: aqua;
+        padding: 0;
+        border: none;
+        background: none;
+    }
+
+    css-grid-editor #fullscreen {
+        /* float: right; */
+        background-color: greenyellow;
+        padding: 0;
+        border: none;
+        background: none;
+    }
+
+    css-grid-editor #close {
+        /* float: right; */
+        background-color: crimson;
+        padding: 0;
+        border: none;
+        background: none;
+    }
+
+    css-grid-editor label.logo {
         color: aliceblue;
         background-color: #0276C2;
         font-size: 25px;
@@ -21,51 +58,54 @@
         padding-left: 15px;
         padding-right: 20px;
         font-weight: bold;
+        float: left;
     }
 
-    #desktop {
+    css-grid-editor #desktop {
         background-color: #0276C2;
         color: #FFFFFF;
+        float: left;
+        margin-left: 30px;
     }
 
+    css-grid-editor #mobile {
+        float: left;
+    }
 
-    nav ul {
+    css-grid-editor .box {
+        flex-direction: row;
         float: right;
-        margin-right: 20px;
+        height: 32px;
+        box-sizing: border-box;
+        border: 1px solid #272c37
     }
 
-    nav ul li {
-        display: inline-block;
-        line-height: 32px;
-        margin: 0 5px;
-    }
+
 
     css-grid-editor {
-        display: block;
-        border: solid silver 1px;
+        /* display: block;
+        border: solid silver 1px; */
     }
 
-    css-grid-editor.header {
+    css-grid-editor .header {
         height: 48px;
         width: 100%;
-        background-color: #0276C2;
+        background-color: #FFFFFF;
         border: 10px;
+        display: flexbox;
+        flex-direction: row;
     }
 
-    css-grid-editor.grid {
+    css-grid-editor .grid {
         border: 10px;
-        height: 80%;
+        background-color: #DADADA;
+        height: 500px;
         width: 100%;
-        background-color: blueviolet;
 
     }
 
     /* Body Styling */
-    .grid {
-        background-color: #DADADA;
-        height: 80%;
-        width: 100%;
-    }
+
 
 
     /* Footer Styling */
@@ -77,20 +117,21 @@
         margin: 20px;
     }
 
-    .footer {
+    css-grid-editor.footer {
         background-color: #FFFFFF;
         height: 48px;
+        width: 1000px;
         margin-top: 32px;
 
     }
 
-    #cancel {
+    css-grid-editor #cancel {
         height: 32px;
         /* width: 60px; */
         text-align: center;
     }
 
-    #apply {
+    css-grid-editor #apply {
         background-color: #272c37;
         color: #FFFFFF;
         height: 32px;
@@ -100,42 +141,62 @@
 </style>
 
 <div class="header" role="toolbar">
-    <nav>
-        <label class="logo">Layout Grid</label>
-        <ul>
-            <button id="desktop">
-                <li>Desktop</li>
-            </button>
-            <button id="mobile">
-                <li>Mobile</li>
-            </button>
-            <button id="columns">
-                <li>Columns</li>
-            </button>
-            <button id="rows">
-                <li>Rows</li>
-            </button>
-            <button id="reset">
-                <li>Reset</li>
-            </button>
+    <label class="logo">Layout Grid</label>
 
-        </ul>
-    </nav>
+    <button id="desktop">
+        Desktop
+    </button>
+    <button id="mobile">
+        Mobile
+    </button>
+
+    <!-- Columns -->
+
+    <div>
+        <button id="reset">
+            Reset
+        </button>
+    </div>
+    <div>
+        <button id="properties">
+            <!-- Properties -->
+            <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M0 20c0 .733.6 1.333 1.333 1.333H8v-2.666H1.333C.6 18.667 0 19.267 0 20ZM0 4c0 .733.6 1.333 1.333 1.333h12V2.667h-12C.6 2.667 0 3.267 0 4Zm13.333 18.667v-1.334h9.334c.733 0 1.333-.6 1.333-1.333s-.6-1.333-1.333-1.333h-9.334v-1.334c0-.733-.6-1.333-1.333-1.333s-1.333.6-1.333 1.333v5.334c0 .733.6 1.333 1.333 1.333s1.333-.6 1.333-1.333Zm-8-13.334v1.334h-4C.6 10.667 0 11.267 0 12s.6 1.333 1.333 1.333h4v1.334c0 .733.6 1.333 1.334 1.333C7.4 16 8 15.4 8 14.667V9.333C8 8.6 7.4 8 6.667 8c-.734 0-1.334.6-1.334 1.333ZM24 12c0-.733-.6-1.333-1.333-1.333h-12v2.666h12c.733 0 1.333-.6 1.333-1.333Zm-6.667-4c.734 0 1.334-.6 1.334-1.333V5.333h4C23.4 5.333 24 4.733 24 4s-.6-1.333-1.333-1.333h-4V1.333C18.667.6 18.067 0 17.333 0 16.6 0 16 .6 16 1.333v5.334C16 7.4 16.6 8 17.333 8Z" />
+            </svg>
+        </button>
+    </div>
+    <div>
+        <button id="fullscreen">
+            <!-- Fullscreen -->
+            <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M24 7.453v-6.12C24 .6 23.4 0 22.667 0h-6.12C15.36 0 14.76 1.44 15.6 2.28l2.12 2.12L4.387 17.733l-2.12-2.12C1.44 14.773 0 15.36 0 16.547v6.12C0 23.4.6 24 1.333 24h6.12c1.187 0 1.787-1.44.947-2.28L6.28 19.6 19.613 6.267l2.12 2.12c.827.84 2.267.253 2.267-.934Z" />
+            </svg>
+        </button>
+    </div>
+    <div>
+        <button id="close">
+            <!-- Close -->
+            <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M23.468.55a1.813 1.813 0 0 0-2.567 0L12 9.434 3.099.533a1.813 1.813 0 0 0-2.567 0c-.71.71-.71 1.856 0 2.566L9.433 12l-8.9 8.901c-.71.71-.71 1.857 0 2.567.71.71 1.856.71 2.566 0L12 14.567l8.901 8.9c.71.71 1.857.71 2.567 0 .71-.71.71-1.856 0-2.566L14.567 12l8.9-8.901a1.824 1.824 0 0 0 0-2.548Z" />
+            </svg>
+        </button>
+    </div>
 </div>
+
 
 <div class="grid" id="grid">
     center
 </div>
 
+
 <div class="footer" role="toolbar">
-    <nav>
-        <ul>
-            <button id="cancel">
-                <li>Cancel</li>
-            </button>
-            <button id="apply">
-                <li>Apply</li>
-            </button>
-        </ul>
-    </nav>
+    <button id="cancel">
+        Cancel
+    </button>
+    <button id="apply">
+        Apply
+    </button>
 </div>
