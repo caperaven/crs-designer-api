@@ -5,6 +5,7 @@
         float: right;
         display: flexbox;
         flex-direction: row;
+        flex-direction: row-reverse;
     }
 
     css-grid-editor div #rows {
@@ -23,6 +24,8 @@
         border: none;
         background: none;
         color: #0276C2;
+        font-size: 20px;
+        font-weight: 400;
     }
 
     css-grid-editor #properties {
@@ -82,9 +85,17 @@
 
 
 
-    css-grid-editor {
-        /* display: block;
-        border: solid silver 1px; */
+    css-grid-editor #reset,
+    #properties,
+    #close,
+    #fullscreen {
+        padding-left: 5px;
+        margin-left: 20px;
+    }
+
+    css-grid-editor #properties {
+        border-left: 2px solid rgba(0, 0, 0, 0.2);
+        padding-left: 10px;
     }
 
     css-grid-editor .header {
@@ -129,6 +140,11 @@
         height: 32px;
         /* width: 60px; */
         text-align: center;
+        font-size: 15px;
+        font-weight: 300;
+        border: none;
+        text-shadow: none;
+        box-shadow: #DADADA;
     }
 
     css-grid-editor #apply {
@@ -137,6 +153,8 @@
         height: 32px;
         /* width: 60px; */
         text-align: center;
+        font-size: 15px;
+        font-weight: 300;
     }
 </style>
 
