@@ -1,9 +1,8 @@
 export class LabelCounter extends HTMLElement{
     async connectedCallback(){
         this.innerHTML = await fetch(import.meta.url.replace(".js", ".html")).then(result => result.text());
-        this.dataset.value = 0;
-        this.plus = this.querySelector(".increase");
-        this.minus = this.querySelector(".decrease");
+        this.counter = 0;
+        
 
         //add click event
         this.clickHandler = this.clicked.bind(this);  
@@ -22,19 +21,38 @@ export class LabelCounter extends HTMLElement{
     }
 
     async clicked(event){
+
+        if(event.target.dataset.label == "Rows"){
         if (event.target.dataset.id == "decrease"){
-            if(this.dataset.value > 1){
-                this.dataset.value --;
-        }
+            if(this.counter > 1){
+                this.counter --;
+                document.getElementById("value").innerHTML = this.counter
+        }}
+
         }
         else if (event.target.dataset.id == "increase"){
-            this.dataset.value += 1;
+            this.counter += 1;
+            document.getElementById("value").innerHTML = this.counter
         }
+        // Attempt to decrease the counter in Columns LabelCounter
 
+        // else if (event.target.dataset.id == "Columns") {
+        //     if (event.target.dataset.id == "increase"){
+        //         this.counter += 1;
+        //         document.getElementById("value").innerHTML = this.counter
+        // }}
+
+
+
+        event.stopPropagation();
     }
 
-    renderCounter() {
-        document.getElementById("value").innerHTML = this.counter
+    rowCounter(event) {
+        document.querySelector("#Rows").textContent = this.counter
+    }
+
+    columnCounter(event) {
+        document.querySelector("#Columns").textContent = this.counter
     }
 }
 

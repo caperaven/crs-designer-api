@@ -69,10 +69,14 @@
         color: #FFFFFF;
         float: left;
         margin-left: 30px;
+        border: 2px solid rgba(0, 0, 0, 0.2);
+        border-radius: 12px;
     }
 
     css-grid-editor #mobile {
         float: left;
+        border: 2px solid rgba(0, 0, 0, 0.2);
+        border-radius: 12px;
     }
 
     css-grid-editor .box {
@@ -143,6 +147,7 @@
         font-size: 15px;
         font-weight: 300;
         border: none;
+        border-radius: 12px;
         text-shadow: none;
         box-shadow: #DADADA;
     }
@@ -155,6 +160,8 @@
         text-align: center;
         font-size: 15px;
         font-weight: 300;
+        border: 2px solid rgba(0, 0, 0, 0.2);
+        border-radius: 12px;
     }
 </style>
 
@@ -167,6 +174,10 @@
     <button id="mobile">
         Mobile
     </button>
+    <div id="rows">
+        <label-counter data-label="Rows"></label-counter>
+        <!-- <label-counter data-label="Columns"></label-counter> -->
+    </div>
 
     <!-- Columns -->
 
@@ -174,6 +185,7 @@
         <button id="reset">
             Reset
         </button>
+
     </div>
     <div>
         <button id="properties">
