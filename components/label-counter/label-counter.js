@@ -22,12 +22,11 @@ export class LabelCounter extends HTMLElement{
 
     async clicked(event){
 
-        if(event.target.dataset.label == "Rows"){
         if (event.target.dataset.id == "decrease"){
             if(this.counter > 1){
                 this.counter --;
                 document.getElementById("value").innerHTML = this.counter
-        }}
+        }
 
         }
         else if (event.target.dataset.id == "increase"){
