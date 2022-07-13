@@ -5,12 +5,14 @@ export class LabelCounter extends HTMLElement{
         
 
         //add click event
-        this.clickHandler = this.clicked.bind(this);  
-        this.addEventListener("click", this.clickHandler);
+        // this.clickHandler = this.clicked.bind(this);  
+        // this.addEventListener("click", this.clickHandler);
 
         requestAnimationFrame(() => {
             // initialize code
             this.querySelector("[data-id='label']").textContent = this.dataset.label;
+            this.clickHandler = this.clicked.bind(this);  
+            this.addEventListener("click", this.clickHandler);
         })
         // alert("Connected");
     }
@@ -21,37 +23,37 @@ export class LabelCounter extends HTMLElement{
     }
 
     async clicked(event){
+        // console.log(event)
+        console.log(event.target)
+        // if (event.target.dataset.id == "decrease"){
+        //     if(this.counter > 1){
+        //         this.counter --;                                 // working 
+        // }
 
-        if (event.target.dataset.id == "decrease"){
-            if(this.counter > 1){
-                this.counter --;
-                document.getElementById("value").innerHTML = this.counter
+        // }
+        // else if (event.target.dataset.id == "increase"){
+        //     this.counter += 1;
+        // }
+
+
+
+        // Convention attempt
+        if(event.target.dataset.action != null){
+           await this[event.target.dataset.action](event);
         }
-
-        }
-        else if (event.target.dataset.id == "increase"){
-            this.counter += 1;
-            document.getElementById("value").innerHTML = this.counter
-        }
-        // Attempt to decrease the counter in Columns LabelCounter
-
-        // else if (event.target.dataset.id == "Columns") {
-        //     if (event.target.dataset.id == "increase"){
-        //         this.counter += 1;
-        //         document.getElementById("value").innerHTML = this.counter
-        // }}
-
-
+        // this.querySelector("[data-value='0']").innerHTML = this.counter        //working
 
         event.stopPropagation();
     }
 
-    rowCounter(event) {
-        document.querySelector("#Rows").textContent = this.counter
+    async increment(event){
+        this.counter ++;
+        this.querySelector("[data-value='0']").innerHTML = this.counter;
     }
 
-    columnCounter(event) {
-        document.querySelector("#Columns").textContent = this.counter
+    async decrement(event){
+        this.counter --;
+        this.querySelector("#decrement").textContent = this.counter;
     }
 }
 
