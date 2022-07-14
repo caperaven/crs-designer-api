@@ -2,10 +2,6 @@ export class LabelCounter extends HTMLElement{
     async connectedCallback(){
         this.innerHTML = await fetch(import.meta.url.replace(".js", ".html")).then(result => result.text());
         this.counter = 0;
-        
-        //add click event
-        // this.clickHandler = this.clicked.bind(this);  
-        // this.addEventListener("click", this.clickHandler);
 
         requestAnimationFrame(() => {
             // initialize code
@@ -13,7 +9,6 @@ export class LabelCounter extends HTMLElement{
             this.clickHandler = this.clicked.bind(this);  
             this.addEventListener("click", this.clickHandler);
         })
-        // alert("Connected");
     }
 
     async disconnectedCallback(){
@@ -46,8 +41,6 @@ export class LabelCounter extends HTMLElement{
             alert("Should at least have 1")
         }
         else(this.counter --)
-        
-        
     }
 }
 

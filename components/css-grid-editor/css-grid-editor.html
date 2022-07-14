@@ -1,5 +1,7 @@
 <style>
-    /* Header Styling */
+    css-grid-editor * {
+        user-select: none;
+    }
 
     css-grid-editor .header {
         height: 48px;
@@ -12,8 +14,8 @@
         flex-direction: row;
         float: right;
         align-items: center;
+        justify-content: center;
     }
-
 
     css-grid-editor label.logo {
         color: #272c37;
@@ -53,7 +55,6 @@
         font-size: 15px;
         font-weight: 300;
     }
-
 
     css-grid-editor button {
         float: right;
@@ -113,8 +114,6 @@
         pointer-events: none;
     }
 
-
-    /* Body Styling */
     css-grid-editor .grid {
         background-color: #DADADA;
         height: 600px;
@@ -122,12 +121,9 @@
         border: 2px solid rgba(0, 0, 0, 0.2);
         border-radius: 2px;
         border-width: 110%;
-
+        justify-content: center;
     }
 
-
-
-    /* Footer Styling */
     css-grid-editor .footer {
         height: 48px;
         width: 100%;
@@ -158,6 +154,7 @@
         width: 75px;
         margin: 5px;
         padding: 3px;
+        justify-content: center;
     }
 
     css-grid-editor #cancel {
@@ -177,6 +174,7 @@
         text-align: right;
         margin: 5px;
         padding: 3px;
+        justify-content: center;
     }
 
     css-grid-editor .footer div {
@@ -198,14 +196,10 @@
         <!-- <label-counter data-label="Columns"></label-counter> -->
         <label-counter class="columns" data-label="Columns"></label-counter>
     </div>
-
-    <!-- Columns -->
-
     <div>
         <button id="reset">
             Reset
         </button>
-
     </div>
     <div>
         <button id="properties">
@@ -235,13 +229,9 @@
         </button>
     </div>
 </div>
-
-
 <div class="grid" id="grid">
     center
 </div>
-
-
 <div class="footer" role="toolbar">
     <button id="apply">
         Apply
