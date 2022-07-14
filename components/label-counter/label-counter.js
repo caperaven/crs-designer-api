@@ -17,9 +17,7 @@ export class LabelCounter extends HTMLElement{
     }
 
     async clicked(event){
-        // console.log(event)
         console.log(event.target)  
-        // Convention attempt
         if(event.target.dataset.action != null){
            await this[event.target.dataset.action](event);
         }
