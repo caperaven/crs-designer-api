@@ -3,7 +3,6 @@ export class LabelCounter extends HTMLElement{
         this.innerHTML = await fetch(import.meta.url.replace(".js", ".html")).then(result => result.text());
         this.counter = 0;
         
-
         //add click event
         // this.clickHandler = this.clicked.bind(this);  
         // this.addEventListener("click", this.clickHandler);
@@ -24,36 +23,29 @@ export class LabelCounter extends HTMLElement{
 
     async clicked(event){
         // console.log(event)
-        console.log(event.target)
-        // if (event.target.dataset.id == "decrease"){
-        //     if(this.counter > 1){
-        //         this.counter --;                                 // working 
-        // }
-
-        // }
-        // else if (event.target.dataset.id == "increase"){
-        //     this.counter += 1;
-        // }
-
-
-
+        console.log(event.target)  
         // Convention attempt
         if(event.target.dataset.action != null){
            await this[event.target.dataset.action](event);
         }
-        // this.querySelector("[data-value='0']").innerHTML = this.counter        //working
-
+        this.querySelector("[data-id='value']").textContent = this.counter;
+        this.dispatchEvent(new CustomEvent("Change", {detail: {value: this.counter}}))
         event.stopPropagation();
     }
 
     async increment(event){
-        this.counter ++;
-        this.querySelector("[data-value='0']").innerHTML = this.counter;
+        if(this.counter >=0){
+            this.counter ++;
+        }
+        
+
     }
 
     async decrement(event){
-        this.counter --;
-        this.querySelector("#decrement").textContent = this.counter;
+        if(this.counter >=0){
+            this.counter --;
+        }
+
     }
 }
 

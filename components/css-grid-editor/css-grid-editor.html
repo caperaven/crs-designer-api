@@ -5,17 +5,25 @@
         float: right;
         display: flex;
         flex-direction: row;
-        flex-direction: row-reverse;
+        /* flex-direction: row-reverse; */
     }
 
-    css-grid-editor div #rows {
+    css-grid-editor div #counter {
         display: flex;
         flex-direction: row;
     }
 
-    css-grid-editor div #columns {
+    css-grid-editor div .rows {
         display: flex;
         flex-direction: row;
+        padding-left: 520px;
+    }
+
+    css-grid-editor div .columns {
+        display: flex;
+        flex-direction: row;
+        padding-left: 10px;
+        padding-right: 70px;
     }
 
     css-grid-editor #reset {
@@ -30,32 +38,45 @@
 
     css-grid-editor #properties {
         /* float: right; */
-        background-color: aqua;
-        padding: 0;
+        /* background-color: aqua;
+        padding: 0; */
         border: none;
         background: none;
     }
 
     css-grid-editor #fullscreen {
         /* float: right; */
-        background-color: greenyellow;
-        padding: 0;
+        /* background-color: greenyellow;
+        padding: 0; */
         border: none;
         background: none;
     }
 
     css-grid-editor #close {
         /* float: right; */
-        background-color: crimson;
-        padding: 0;
+        /* background-color: crimson;
+        padding: 0; */
         border: none;
         background: none;
+
+    }
+
+    css-grid-editor #reset,
+    #fullscreen,
+    #properties,
+    #close {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    crs-grid-editor svg * {
+        pointer-events: none;
     }
 
     css-grid-editor label.logo {
-        color: aliceblue;
-        background-color: #0276C2;
-        font-size: 25px;
+        color: #272c37;
+        background-color: #FFFFFF;
+        font-size: 20px;
         line-height: 30px;
         padding: 0 100px;
         padding-left: 15px;
@@ -70,22 +91,34 @@
         float: left;
         margin-left: 30px;
         border: 2px solid rgba(0, 0, 0, 0.2);
-        border-radius: 12px;
+        border-radius: 5px;
+        height: 32px;
+        width: 75px;
+        align-items: center;
+        font-size: 15px;
+        font-weight: 300;
     }
 
     css-grid-editor #mobile {
         float: left;
         border: 2px solid rgba(0, 0, 0, 0.2);
-        border-radius: 12px;
+        border-radius: 5px;
+        color: #F4F4F4;
+        background-color: #757575;
+        height: 32px;
+        width: 75px;
+        align-items: center;
+        font-size: 15px;
+        font-weight: 300;
     }
 
-    css-grid-editor .box {
+    /* css-grid-editor .box {
         flex-direction: row;
         float: right;
         height: 32px;
         box-sizing: border-box;
         border: 1px solid #272c37
-    }
+    } */
 
 
 
@@ -93,8 +126,14 @@
     #properties,
     #close,
     #fullscreen {
-        padding-left: 5px;
-        margin-left: 20px;
+        padding-left: 10px;
+        padding-right: 2px;
+        margin-left: 2px;
+        margin-right: 2px;
+        /* height: 18px;
+        width: 18px;
+        border-radius: 50%; */
+        float: right;
     }
 
     css-grid-editor #properties {
@@ -106,15 +145,19 @@
         height: 48px;
         width: 100%;
         background-color: #FFFFFF;
-        border: 10px;
-        display: flexbox;
+        border: 2px solid rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+        border-width: 100%;
+        display: flex;
         flex-direction: row;
+        float: right;
+        align-items: center;
     }
 
     css-grid-editor .grid {
         border: 10px;
         background-color: #DADADA;
-        height: 500px;
+        height: 600px;
         width: 100%;
 
     }
@@ -125,32 +168,26 @@
 
     /* Footer Styling */
     css-grid-editor.footer {
+        display: flex;
+        flex-direction: row;
         height: 60px;
         width: 100%;
         border: 10px;
         float: right;
         margin: 20px;
+        background-color: #FFFFFF;
     }
 
+    /* 
     css-grid-editor.footer {
         background-color: #FFFFFF;
         height: 48px;
         width: 1000px;
         margin-top: 32px;
 
-    }
+    } */
 
-    css-grid-editor #cancel {
-        height: 32px;
-        /* width: 60px; */
-        text-align: center;
-        font-size: 15px;
-        font-weight: 300;
-        border: none;
-        border-radius: 12px;
-        text-shadow: none;
-        box-shadow: #DADADA;
-    }
+
 
     css-grid-editor #apply {
         background-color: #272c37;
@@ -161,7 +198,26 @@
         font-size: 15px;
         font-weight: 300;
         border: 2px solid rgba(0, 0, 0, 0.2);
-        border-radius: 12px;
+        border-radius: 5px;
+        height: 32px;
+        width: 75px;
+    }
+
+    css-grid-editor #cancel {
+        height: 32px;
+        /* width: 60px; */
+        text-align: center;
+        font-size: 15px;
+        font-weight: 300;
+        border: none;
+        border-radius: 5px;
+        text-shadow: none;
+        box-shadow: none;
+        height: 32px;
+        width: 75px;
+        color: #272c37;
+        background-color: #FFFFFF;
+        text-align: center;
     }
 </style>
 
@@ -174,9 +230,10 @@
     <button id="mobile">
         Mobile
     </button>
-    <div id="rows">
-        <label-counter data-label="Rows"></label-counter>
+    <div id="counter">
+        <label-counter class="rows" data-label="Rows"></label-counter>
         <!-- <label-counter data-label="Columns"></label-counter> -->
+        <label-counter class="columns" data-label="Columns"></label-counter>
     </div>
 
     <!-- Columns -->
@@ -223,10 +280,10 @@
 
 
 <div class="footer" role="toolbar">
-    <button id="cancel">
-        Cancel
-    </button>
     <button id="apply">
         Apply
+    </button>
+    <button id="cancel">
+        Cancel
     </button>
 </div>
