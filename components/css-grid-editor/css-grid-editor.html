@@ -1,77 +1,19 @@
 <style>
     /* Header Styling */
 
-    css-grid-editor button {
+    css-grid-editor .header {
+        height: 48px;
+        width: 100%;
+        background-color: #FFFFFF;
+        border: 2px solid rgba(0, 0, 0, 0.2);
+        border-radius: 2px;
+        border-width: 100%;
+        display: flex;
+        flex-direction: row;
         float: right;
-        display: flex;
-        flex-direction: row;
-        /* flex-direction: row-reverse; */
+        align-items: center;
     }
 
-    css-grid-editor div #counter {
-        display: flex;
-        flex-direction: row;
-    }
-
-    css-grid-editor div .rows {
-        display: flex;
-        flex-direction: row;
-        padding-left: 520px;
-    }
-
-    css-grid-editor div .columns {
-        display: flex;
-        flex-direction: row;
-        padding-left: 10px;
-        padding-right: 70px;
-    }
-
-    css-grid-editor #reset {
-        /* float: right; */
-        padding: 0;
-        border: none;
-        background: none;
-        color: #0276C2;
-        font-size: 20px;
-        font-weight: 400;
-    }
-
-    css-grid-editor #properties {
-        /* float: right; */
-        /* background-color: aqua;
-        padding: 0; */
-        border: none;
-        background: none;
-    }
-
-    css-grid-editor #fullscreen {
-        /* float: right; */
-        /* background-color: greenyellow;
-        padding: 0; */
-        border: none;
-        background: none;
-    }
-
-    css-grid-editor #close {
-        /* float: right; */
-        /* background-color: crimson;
-        padding: 0; */
-        border: none;
-        background: none;
-
-    }
-
-    css-grid-editor #reset,
-    #fullscreen,
-    #properties,
-    #close {
-        padding-left: 10px;
-        padding-right: 10px;
-    }
-
-    crs-grid-editor svg * {
-        pointer-events: none;
-    }
 
     css-grid-editor label.logo {
         color: #272c37;
@@ -112,101 +54,116 @@
         font-weight: 300;
     }
 
-    /* css-grid-editor .box {
+
+    css-grid-editor button {
+        float: right;
+        display: flex;
         flex-direction: row;
-        float: right;
-        height: 32px;
-        box-sizing: border-box;
-        border: 1px solid #272c37
-    } */
+    }
 
+    css-grid-editor div #counter {
+        display: flex;
+        flex-direction: row;
+    }
 
+    css-grid-editor div .rows {
+        display: flex;
+        flex-direction: row;
+        padding-left: 520px;
+    }
 
-    css-grid-editor #reset,
-    #properties,
-    #close,
-    #fullscreen {
+    css-grid-editor div .columns {
+        display: flex;
+        flex-direction: row;
         padding-left: 10px;
-        padding-right: 2px;
-        margin-left: 2px;
-        margin-right: 2px;
-        /* height: 18px;
-        width: 18px;
-        border-radius: 50%; */
-        float: right;
+        padding-right: 70px;
+    }
+
+    css-grid-editor #reset {
+        padding: 0;
+        padding-right: 20px;
+        border: none;
+        background: none;
+        color: #0276C2;
+        font-size: 20px;
+        font-weight: 400;
     }
 
     css-grid-editor #properties {
+        border: none;
+        background: none;
         border-left: 2px solid rgba(0, 0, 0, 0.2);
-        padding-left: 10px;
+        padding-left: 20px;
     }
 
-    css-grid-editor .header {
-        height: 48px;
-        width: 100%;
-        background-color: #FFFFFF;
-        border: 2px solid rgba(0, 0, 0, 0.2);
-        border-radius: 5px;
-        border-width: 100%;
-        display: flex;
-        flex-direction: row;
-        float: right;
-        align-items: center;
+    css-grid-editor #fullscreen {
+        border: none;
+        background: none;
+        padding-left: 20px;
     }
 
+    css-grid-editor #close {
+        border: none;
+        background: none;
+        padding-left: 20px;
+
+    }
+
+    crs-grid-editor svg * {
+        pointer-events: none;
+    }
+
+
+    /* Body Styling */
     css-grid-editor .grid {
-        border: 10px;
         background-color: #DADADA;
         height: 600px;
         width: 100%;
+        border: 2px solid rgba(0, 0, 0, 0.2);
+        border-radius: 2px;
+        border-width: 110%;
 
     }
-
-    /* Body Styling */
 
 
 
     /* Footer Styling */
-    css-grid-editor.footer {
+    css-grid-editor .footer {
+        height: 48px;
+        width: 100%;
+        background-color: #FFFFFF;
+        border: 2px solid rgba(0, 0, 0, 0.2);
+        border-radius: 2px;
+        border-width: 100%;
         display: flex;
         flex-direction: row;
-        height: 60px;
-        width: 100%;
-        border: 10px;
+        flex-direction: row-reverse;
         float: right;
-        margin: 20px;
-        background-color: #FFFFFF;
+        text-align: right;
+        align-items: center;
     }
 
-    /* 
-    css-grid-editor.footer {
-        background-color: #FFFFFF;
-        height: 48px;
-        width: 1000px;
-        margin-top: 32px;
-
-    } */
-
-
-
     css-grid-editor #apply {
+        display: flex;
+        flex-direction: row;
         background-color: #272c37;
         color: #FFFFFF;
-        height: 32px;
-        /* width: 60px; */
-        text-align: center;
+        height: 40px;
+        text-align: right;
         font-size: 15px;
         font-weight: 300;
         border: 2px solid rgba(0, 0, 0, 0.2);
         border-radius: 5px;
         height: 32px;
         width: 75px;
+        margin: 5px;
+        padding: 3px;
     }
 
     css-grid-editor #cancel {
-        height: 32px;
-        /* width: 60px; */
-        text-align: center;
+        display: flex;
+        flex-direction: row;
+        height: 40px;
         font-size: 15px;
         font-weight: 300;
         border: none;
@@ -217,7 +174,13 @@
         width: 75px;
         color: #272c37;
         background-color: #FFFFFF;
-        text-align: center;
+        text-align: right;
+        margin: 5px;
+        padding: 3px;
+    }
+
+    css-grid-editor .footer div {
+        text-align: right;
     }
 </style>
 

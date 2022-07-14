@@ -22,29 +22,19 @@
         align-items: center;
     }
 
-    /* label-counter svg * {
+    label-counter svg * {
         pointer-events: none;
-        padding-left: 5px;
-        padding-right: 5px;
-    } */
-
-    label-counter svg.plus {
-        pointer-events: none;
-        padding-left: 10px;
-        padding-right: 5px;
     }
 
-    label-counter svg.minus {
-        pointer-events: none;
+    label-counter svg {
+
         padding-left: 10px;
         padding-right: 5px;
-
     }
 
     label-counter div #value {
         border-right: 2px solid rgba(0, 0, 0, 0.2);
         border-left: 2px solid rgba(0, 0, 0, 0.2);
-        /* margin: 2px; */
         padding-left: 5px;
         padding-right: 5px;
     }
@@ -59,7 +49,6 @@
             d="M6 12c0 .66.54 1.2 1.2 1.2h9.6c.66 0 1.2-.54 1.2-1.2 0-.66-.54-1.2-1.2-1.2H7.2c-.66 0-1.2.54-1.2 1.2Zm6-12C5.376 0 0 5.376 0 12s5.376 12 12 12 12-5.376 12-12S18.624 0 12 0Zm0 21.6c-5.292 0-9.6-4.308-9.6-9.6S6.708 2.4 12 2.4s9.6 4.308 9.6 9.6-4.308 9.6-9.6 9.6Z" />
     </svg>
     <div data-id="value">0</div>
-    <!-- <span id="value">0</span> -->
     <svg data-action="increment" data-id="increase" class="plus" role="button" width="24" height="24"
         xmlns="http://www.w3.org/2000/svg">
         <path
