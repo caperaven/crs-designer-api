@@ -4,7 +4,7 @@ export class LabelCounter extends HTMLElement{
         this.counter = 0;
 
         requestAnimationFrame(() => {
-            // initialize code
+
             this.querySelector("[data-id='label']").textContent = this.dataset.label;
             this.clickHandler = this.clicked.bind(this);  
             this.addEventListener("click", this.clickHandler);
