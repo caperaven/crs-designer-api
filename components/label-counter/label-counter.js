@@ -4,7 +4,6 @@ export class LabelCounter extends HTMLElement{
         this.counter = 0;
 
         requestAnimationFrame(() => {
-
             this.querySelector("[data-id='label']").textContent = this.dataset.label;
             this.clickHandler = this.clicked.bind(this);  
             this.addEventListener("click", this.clickHandler);
@@ -16,8 +15,7 @@ export class LabelCounter extends HTMLElement{
         this.clickHandler = null;
     }
 
-    async clicked(event){
-        console.log(event.target)  
+    async clicked(event){ 
         if(event.target.dataset.action != null){
            await this[event.target.dataset.action](event);
         }
