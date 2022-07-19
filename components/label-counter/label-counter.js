@@ -21,7 +21,6 @@ export class LabelCounter extends HTMLElement{
         }
         this.querySelector("[data-id='value']").textContent = this.counter;
         this.dispatchEvent(new CustomEvent("Change", {detail: {value: this.counter}}))
-        console.log(event.detail);
         event.stopPropagation();
     }
 
