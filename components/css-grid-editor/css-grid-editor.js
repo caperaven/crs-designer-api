@@ -3,28 +3,40 @@ import "./../../components/label-counter/label-counter.js"
 export class CssGridEditor extends HTMLElement {
     async connectedCallback() {
         this.innerHTML = await fetch(import.meta.url.replace(".js", ".html")).then(result => result.text());
-        this.buttonAction = null;
+        
         
         requestAnimationFrame(() => {
             // initialize code
-            this.clickHandler = this.clicked.bind(this);  
-            this.addEventListener("click", this.clickHandler);
+            this.querySelector('button').addEventListener("click", this.clickedHandler);
+            this.clickedHandler = this.click.bind(this);
+            this.addEventListener("click", this.clickedHandler);
         })
     }
 
     async disconnectedCallback() {
-        await this.removeEventListener("click",this.clickHandler);
-        this.clickHandler = null;
+        await this.removeEventListener("click",this.clickedHandler);
+        this.clickedHandler = null;
     }
 
-    async clickHandler(event) {
+    async clickedHandler(event) {
+        console.log(this);
+        alert('clicked a button');
         if(event.target.dataset.action != null){
             await this[event.target.dataset.action](event);
-         }
+        }
 
         event.stopPropagation();
         
     }
+
+
+    async desktop(event){
+            console.log("ToDo: desktop event");
+        }
+
+    async mobile(event){
+            console.log("ToDo: mobile event");
+        }
 
     async reset(event){
         console.log("ToDo: reset event");
