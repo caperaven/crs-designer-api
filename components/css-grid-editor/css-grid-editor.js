@@ -7,8 +7,9 @@ export class CssGridEditor extends HTMLElement {
         
         requestAnimationFrame(() => {
             // initialize code
-            this.querySelector('button').addEventListener("click", this.clickedHandler);
-            this.clickedHandler = this.click.bind(this);
+            this.clickedHandler = this.clicked.bind(this);
+            // this.querySelector('button').addEventListener("click", this.clickedHandler);
+            
             this.addEventListener("click", this.clickedHandler);
         })
     }
@@ -18,16 +19,27 @@ export class CssGridEditor extends HTMLElement {
         this.clickedHandler = null;
     }
 
-    async clickedHandler(event) {
-        console.log(this);
-        alert('clicked a button');
+    async clicked(event){
         if(event.target.dataset.action != null){
             await this[event.target.dataset.action](event);
-        }
+        } 
+        console.log(this);
+        alert('clicked a button');
 
         event.stopPropagation();
-        
     }
+
+    // async clickedHandler(event) {
+        
+    //     if(event.target.dataset.action != null){
+    //         await this[event.target.dataset.action](event);
+    //     } 
+    //     console.log(this);
+    //     alert('clicked a button');
+
+    //     event.stopPropagation();
+        
+    // }
 
 
     async desktop(event){
@@ -52,6 +64,14 @@ export class CssGridEditor extends HTMLElement {
 
     async close(event){
         console.log("ToDo: close event");
+    }
+
+    async cancel(event){
+        console.log("ToDo: cancel event");
+    }
+
+    async apply(event){
+        console.log("ToDo: apply event");
     }
 }
 
