@@ -22,7 +22,6 @@
         display: flex;
         flex-direction: row;
         align-items: center;
-        justify-content: center;
     }
 
     css-grid-editor label.logo {
@@ -61,22 +60,8 @@
         font-weight: var(--button-font-weight);
     }
 
-    css-grid-editor div #counter {
-        display: flex;
-        flex-direction: row;
-    }
-
-    css-grid-editor div .rows {
-        display: flex;
-        flex-direction: row;
-        padding-left: 520px;
-    }
-
-    css-grid-editor div .columns {
-        display: flex;
-        flex-direction: row;
-        padding-left: 10px;
-        padding-right: 70px;
+    css-grid-editor .spacer {
+        flex: 1;
     }
 
     css-grid-editor #reset {
@@ -153,22 +138,14 @@
     }
 </style>
 
-<div class="header" role="toolbar">
-    <label class="logo">Layout Grid</label>
-
-    <button data-action="desktop" id="desktop">
-        Desktop
-    </button>
-    <button data-action="mobile" id="mobile">
-        Mobile
-    </button>
-    <div id="counter">
-        <label-counter class="rows" data-label="Rows"></label-counter>
-        <label-counter class="columns" data-label="Columns"></label-counter>
-    </div>
-    <button data-action="reset" data-id="reset" id="reset">
-        Reset
-    </button>
+<div data-id="top-toolbar" class="header" role="toolbar">
+    <h2 class="logo">Layout Grid</h2>
+    <button data-action="desktop" id="desktop">Desktop</button>
+    <button data-action="mobile" id="mobile">Mobile</button>
+    <div class="spacer"></div>
+    <label-counter class="rows" data-label="Rows"></label-counter>
+    <label-counter class="columns" data-label="Columns"></label-counter>
+    <button data-action="reset" data-id="reset" id="reset">Reset</button>
     <button data-id="properties" id="properties">
         <svg data-action="properties" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
             <path
@@ -192,10 +169,6 @@
     center
 </div>
 <div class="footer" role="toolbar">
-    <button data-action="apply" id="apply">
-        Apply
-    </button>
-    <button data-action="cancel" id="cancel">
-        Cancel
-    </button>
+    <button data-action="apply" id="apply">Apply</button>
+    <button data-action="cancel" id="cancel">Cancel</button>
 </div>

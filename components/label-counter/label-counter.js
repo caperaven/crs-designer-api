@@ -26,16 +26,13 @@ export class LabelCounter extends HTMLElement{
 
     async increment(event){
         this.counter ++;
-        if(this.counter == 0){
-            alert("Should at least have 1")
-        }
     }
 
     async decrement(event){
+        this.counter --;
         if(this.counter == 0){
-            alert("Should at least have 1")
+            this.counter = 1;
         }
-        else(this.counter --)
     }
 }
 

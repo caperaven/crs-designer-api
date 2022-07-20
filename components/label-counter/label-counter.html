@@ -10,34 +10,26 @@
         align-items: center;
     }
 
-    label-counter div {
-        padding: 5px;
-    }
-
     label-counter div.container {
         border: var(--border-color);
         border-radius: 12px;
-        margin: 5px;
         border-radius: 5px;
-        padding: 0;
-        margin: 0;
-        width: 100px;
-        align-items: center;
-        justify-content: center;
+        padding: 0.25rem;
+        margin-left: 0.5rem;
     }
 
     label-counter svg * {
         pointer-events: none;
     }
 
-    label-counter svg {
-        padding-left: 10px;
-        padding-right: 5px;
-    }
-
-    label-counter div #value {
+    label-counter [data-id='value'] {
         border-right: var(--border-color);
         border-left: var(--border-color);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 1.5rem;
+        margin: 0 0.25rem;
     }
 </style>
 

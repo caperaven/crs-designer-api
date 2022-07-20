@@ -5,12 +5,10 @@ export class CssGridEditor extends HTMLElement {
         this.innerHTML = await fetch(import.meta.url.replace(".js", ".html")).then(result => result.text());
         
         
-        requestAnimationFrame(() => {
-            // initialize code
+        requestAnimationFrame(() => {          
             this.clickedHandler = this.clicked.bind(this);
-            // this.querySelector('button').addEventListener("click", this.clickedHandler);
-            
-            this.addEventListener("click", this.clickedHandler);
+            this.querySelector('[data-id="top-toolbar"]').addEventListener("click", this.clickedHandler);
+
         })
     }
 
@@ -23,23 +21,9 @@ export class CssGridEditor extends HTMLElement {
         if(event.target.dataset.action != null){
             await this[event.target.dataset.action](event);
         } 
-        console.log(this);
-        alert('clicked a button');
 
         event.stopPropagation();
     }
-
-    // async clickedHandler(event) {
-        
-    //     if(event.target.dataset.action != null){
-    //         await this[event.target.dataset.action](event);
-    //     } 
-    //     console.log(this);
-    //     alert('clicked a button');
-
-    //     event.stopPropagation();
-        
-    // }
 
 
     async desktop(event){
