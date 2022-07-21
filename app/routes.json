@@ -28,6 +28,11 @@
       "view": "404",
       "html-only": true,
       "hasStyle": true
+    },
+    {
+      "title": "Movement",
+      "hash": "#movement",
+      "view": "movement"
     }
   ]
 }
