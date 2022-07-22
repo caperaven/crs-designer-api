@@ -21,22 +21,18 @@ export class LabelCounter extends HTMLElement{
         }
         this.querySelector("[data-id='value']").textContent = this.counter;
         this.dispatchEvent(new CustomEvent("Change", {detail: {value: this.counter}}))
-        console.log(event.detail);
         event.stopPropagation();
     }
 
     async increment(event){
         this.counter ++;
-        if(this.counter == 0){
-            alert("Should at least have 1")
-        }
     }
 
     async decrement(event){
+        this.counter --;
         if(this.counter == 0){
-            alert("Should at least have 1")
+            this.counter = 1;
         }
-        else(this.counter --)
     }
 }
 
