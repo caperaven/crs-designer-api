@@ -6,7 +6,6 @@
         --border-radius: 3px;
         --button-font-size: 15px;
         --button-font-weight: 300;
-
     }
 
     css-grid-editor * {
@@ -72,13 +71,10 @@
         border-left: var(--border-color);
     }
 
-    css-grid-editor #fullscreen,
-    #close,
-    #properties,
-    #reset {
+    css-grid-editor .toolbar-button {
         border: none;
         background: none;
-        padding-left: 20px;
+        padding: 0.5rem;
     }
 
     crs-grid-editor svg * {
@@ -141,21 +137,21 @@
     <div class="spacer"></div>
     <label-counter class="rows" data-label="Rows"></label-counter>
     <label-counter class="columns" data-label="Columns"></label-counter>
-    <button data-action="reset" data-id="reset" id="reset">Reset</button>
-    <button data-id="properties" id="properties">
-        <svg data-action="properties" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+    <button class="toolbar-button" data-action="reset" data-id="reset" id="reset">Reset</button>
+    <button class="toolbar-button" data-id="properties" id="properties">
+        <svg data-action="properties" viewBox="0 0 24 24" width="16" height="16" xmlns="http://www.w3.org/2000/svg">
             <path
                 d="M0 20c0 .733.6 1.333 1.333 1.333H8v-2.666H1.333C.6 18.667 0 19.267 0 20ZM0 4c0 .733.6 1.333 1.333 1.333h12V2.667h-12C.6 2.667 0 3.267 0 4Zm13.333 18.667v-1.334h9.334c.733 0 1.333-.6 1.333-1.333s-.6-1.333-1.333-1.333h-9.334v-1.334c0-.733-.6-1.333-1.333-1.333s-1.333.6-1.333 1.333v5.334c0 .733.6 1.333 1.333 1.333s1.333-.6 1.333-1.333Zm-8-13.334v1.334h-4C.6 10.667 0 11.267 0 12s.6 1.333 1.333 1.333h4v1.334c0 .733.6 1.333 1.334 1.333C7.4 16 8 15.4 8 14.667V9.333C8 8.6 7.4 8 6.667 8c-.734 0-1.334.6-1.334 1.333ZM24 12c0-.733-.6-1.333-1.333-1.333h-12v2.666h12c.733 0 1.333-.6 1.333-1.333Zm-6.667-4c.734 0 1.334-.6 1.334-1.333V5.333h4C23.4 5.333 24 4.733 24 4s-.6-1.333-1.333-1.333h-4V1.333C18.667.6 18.067 0 17.333 0 16.6 0 16 .6 16 1.333v5.334C16 7.4 16.6 8 17.333 8Z" />
         </svg>
     </button>
-    <button data-id="fullscreen" id="fullscreen">
-        <svg data-action="fullscreen" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+    <button class="toolbar-button" data-id="fullscreen" id="fullscreen">
+        <svg data-action="fullscreen" viewBox="0 0 24 24" width="16" height="16" xmlns="http://www.w3.org/2000/svg">
             <path
                 d="M24 7.453v-6.12C24 .6 23.4 0 22.667 0h-6.12C15.36 0 14.76 1.44 15.6 2.28l2.12 2.12L4.387 17.733l-2.12-2.12C1.44 14.773 0 15.36 0 16.547v6.12C0 23.4.6 24 1.333 24h6.12c1.187 0 1.787-1.44.947-2.28L6.28 19.6 19.613 6.267l2.12 2.12c.827.84 2.267.253 2.267-.934Z" />
         </svg>
     </button>
-    <button data-id="close" id="close">
-        <svg data-action="close" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+    <button class="toolbar-button" data-id="close" id="close">
+        <svg data-action="close" viewBox="0 0 24 24" width="16" height="16" xmlns="http://www.w3.org/2000/svg">
             <path
                 d="M23.468.55a1.813 1.813 0 0 0-2.567 0L12 9.434 3.099.533a1.813 1.813 0 0 0-2.567 0c-.71.71-.71 1.856 0 2.566L9.433 12l-8.9 8.901c-.71.71-.71 1.857 0 2.567.71.71 1.856.71 2.566 0L12 14.567l8.901 8.9c.71.71 1.857.71 2.567 0 .71-.71.71-1.856 0-2.566L14.567 12l8.9-8.901a1.824 1.824 0 0 0 0-2.548Z" />
         </svg>
