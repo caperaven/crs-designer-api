@@ -1,4 +1,8 @@
 <style>
+    <!--
+        you are bleeding styles!!!!
+        prefix this with the component name or use shadow dom but you cant keep bleeding styles like this
+    -->
     .mainWindow {
         width: 300px;
         height: 500px;
@@ -35,6 +39,11 @@
         grid-template-columns: auto auto auto;
     }
 
+    <!--
+        Rather assign a class to the parent that will affect the behaviour
+        for example add the class "grid" to windowCanvas when you want to render it as a grid
+        or "list" when you want to render it like a list
+    -->
     div.windowCanvas div {
         width: 70px;
         height: 100px;
@@ -49,9 +58,15 @@
     }
 </style>
 
+<!-- JHR: Hello UL in outer space, should you not be in one of the structures below? -->
 <ul>
 
 </ul>
+
+<--
+    JHR: there should not be two windows
+    Pick one to move forward with and remove the other.
+-->
 
 <div class="mainWindow">
     <div class="windowHeader">
@@ -84,7 +99,7 @@
             <button id="listBtn">list</button>
         </div>
     </div>
-    <div class="windowCanvas">
+    <div class="windowCanvas"> <!-- JHR: why is this redundent div here? it only contains the UL so it might as well not exist -->
         <ul>
             <li>text</li>
             <li>text</li>
