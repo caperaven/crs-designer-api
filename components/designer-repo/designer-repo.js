@@ -10,7 +10,17 @@ export class DesignerRepo extends crsbinding.classes.BindableElement{
         return import.meta.url.replace(".js", ".html");
 
         // JHR: this does not belong here, move to connected callback
+    }
+
+    async connectedCallback() {
+        await super.connectedCallback();
         this.loadHTML();
+
+    }
+
+    async disconnectedCallback () {
+
+        await super.disconnectedCallback();
     }
 
     preLoad () {
@@ -18,22 +28,17 @@ export class DesignerRepo extends crsbinding.classes.BindableElement{
     }
 
     // JHR Make this async because fetch is async
-    loadHTML () {
+    async loadHTML () {
         const status = this.getProperty("displayStatus");
         const file = `/templates/designer-repo/${this.dataset.repo}-${status}.html`;
 
-        // 1. use fetch api to fetch the hml
+        let var1 = await fetch(file).then(result => result.text());
+        console.log(var1);
+
+        
+        
+        // 1. use fetch api to fetch the html
         // 2. append the html to the ul
-    }
-
-    async connectedCallback() {
-        await super.connectedCallback();
-
-    }
-
-    async disconnectedCallback () {
-
-        await super.disconnectedCallback();
     }
 }
 
