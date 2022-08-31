@@ -9,7 +9,6 @@ export class DesignerRepo extends crsbinding.classes.BindableElement{
     get html() { 
         return import.meta.url.replace(".js", ".html");
 
-        // JHR: this does not belong here, move to connected callback
     }
 
     async connectedCallback() {

@@ -11,13 +11,13 @@
     designer-repo .mainWindow {
         width: 300px;
         height: 500px;
-        border: 2px solid gray;
+        border: 3px solid gray;
         border-radius: 10px;
         margin: 50px;
     }
 
     designer-repo div.windowHeader {
-        border-bottom: 1px solid gray;
+        border-bottom: 3px solid gray;
         padding: 5px;
         margin-top: 10px;
         margin-bottom: 10px;
@@ -43,31 +43,27 @@
         color: azure;
     }
 
-    designer-repo .gridDisplay li {
+    designer-repo ul {
+        padding: 0;
+        margin: 10px;
+    }
+
+    designer-repo .grid-display li {
         display: inline-grid;
         grid-template-columns: auto auto auto;
         padding: 10px;
-        margin: 20px;
+        margin: 10px;
+        border: 1px solid gray;
+        border-radius: 7px;
+        width: 40px;
+        height: 50px;
+
     }
 
-    designer-repo .listDisplay li {
+    designer-repo .list-display li {
         background-color: #0094d1;
         padding: 10px;
         margin: 7px;
-    }
-
-    designer-repo .red {
-        background-color: crimson;
-    }
-
-    designer-repo .blue {
-        background-color: #0094d1;
-    }
-
-    designer-repo #color {
-        height: 200px;
-        width: 200px;
-        background-color: aqua;
     }
 </style>
 
@@ -75,36 +71,17 @@
 <!-- JHR: Hello UL in outer space, should you not be in one of the structures below? -->
 
 
-<!-- <-- JHR: there should not be two windows Pick one to move forward with and remove the other. --> -->
-
-
-
 <div class="mainWindow">
     <div role="toolbar" class="windowHeader">
         <input type="text" placeholder="Type to Filter Widget">
         <div class="headerBtn">
-            <button id="gridBtn" click.setValue="displayStatus = 'grid'"
+            <button role="button" id="gridBtn" click.setValue="displayStatus = 'grid'" aria-pressed="false"
                 classList.if="displayStatus == 'grid' ? 'active'">grid</button>
-            <button id="listBtn" click.setValue="displayStatus = 'list'"
+            <button role="button" id="listBtn" click.setValue="displayStatus = 'list'" aria-pressed="false"
                 classList.if="displayStatus == 'list' ? 'active'">list</button>
         </div>
     </div>
-    <div class="windowCanvas">
-        <ul id="display" classList.if="displayStatus == 'grid'? 'gridDisplay' : 'listDisplay'">
-            ${status}
-        </ul>
-    </div>
-</div>
-
-
-<!-- Testing Div -->
-<div>
-    <span>
-        <button click.setValue="divColor = 'red'" classList.if="divColor == 'red'">Red</button>
-        <button click.setValue="divColor = 'blue'" classList.if="divColor == 'blue'">Blue</button>
-    </span>
-    <div classList.if="divColor == 'red' ? 'red' : 'blue'">
-        ${divColor}
-    </div>
-
+    <ul id="display" classList.if="displayStatus == 'grid'? 'grid-display' : 'list-display'">
+        ${status}
+    </ul>
 </div>
