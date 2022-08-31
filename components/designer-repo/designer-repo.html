@@ -1,8 +1,13 @@
-<style>
-    <!--
-        you are bleeding styles!!!!
-        prefix this with the component name or use shadow dom but you cant keep bleeding styles like this
+<!--
+    you are bleeding styles ! ! ! ! prefix this with the component name or use shadow dom but you cant keep bleeding styles like this
     -->
+
+<!--
+        Rather assign a class to the parent that will affect the behaviour
+        for example add the class "grid" to windowCanvas when you want to render it as a grid
+        or "list" when you want to render it like a list
+    -->
+<style>
     .mainWindow {
         width: 300px;
         height: 500px;
@@ -33,77 +38,73 @@
         margin-left: 20px;
     }
 
+    .active {
+        background-color: #0094d1;
+        color: azure;
+    }
 
-    div.windowCanvas {
+    .gridDisplay li {
         display: inline-grid;
         grid-template-columns: auto auto auto;
+        padding: 10px;
+        margin: 20px;
     }
 
-    <!--
-        Rather assign a class to the parent that will affect the behaviour
-        for example add the class "grid" to windowCanvas when you want to render it as a grid
-        or "list" when you want to render it like a list
-    -->
-    div.windowCanvas div {
-        width: 70px;
-        height: 100px;
-        border: 2px solid gray;
-        border-radius: 5px;
-        margin: 10px;
-
+    .listDisplay li {
+        background-color: #0094d1;
+        padding: 10px;
+        margin: 7px;
     }
 
-    div.windowCanvas ul li {
-        border-bottom: 2px solid gray;
+    .red {
+        background-color: crimson;
+    }
+
+    .blue {
+        background-color: #0094d1;
+    }
+
+    #color {
+        height: 200px;
+        width: 200px;
+        background-color: aqua;
     }
 </style>
 
+
 <!-- JHR: Hello UL in outer space, should you not be in one of the structures below? -->
-<ul>
 
-</ul>
 
-<--
-    JHR: there should not be two windows
-    Pick one to move forward with and remove the other.
--->
+<!-- <-- JHR: there should not be two windows Pick one to move forward with and remove the other. --> -->
+
+
 
 <div class="mainWindow">
-    <div class="windowHeader">
+    <div role="toolbar" class="windowHeader">
         <input type="text" placeholder="Type to Filter Widget">
         <div class="headerBtn">
-            <button id="gridBtn">grid</button>
-            <button id="listBtn">list</button>
+            <button id="gridBtn" click.setValue="displayStatus = 'grid'"
+                classList.if="displayStatus == 'grid' ? 'active'">grid</button>
+            <button id="listBtn" click.setValue="displayStatus = 'list'"
+                classList.if="displayStatus == 'list' ? 'active'">list</button>
         </div>
     </div>
     <div class="windowCanvas">
-        <div>group1</div>
-        <div>group2</div>
-        <div>group3</div>
-
-        <div>group4</div>
-        <div>group5</div>
-        <div>group6</div>
-
-        <div>group7</div>
-        <div>group8</div>
-        <div>group9</div>
+        <ul id="display" classList.if="displayStatus == 'grid'? 'gridDisplay' : 'listDisplay'">
+            ${status}
+        </ul>
     </div>
 </div>
 
-<div class="mainWindow">
-    <div class="windowHeader">
-        <input type="text" placeholder="Type to Filter Widget">
-        <div class="headerBtn">
-            <button id="gridBtn">grid</button>
-            <button id="listBtn">list</button>
-        </div>
+
+<!-- Testing Div -->
+<div>
+    <span>
+        <button click.setValue="divColor = 'red'" classList.if="divColor == 'red'">Red</button>
+        <button click.setValue="divColor = 'blue'" classList.if="divColor == 'blue'">Blue</button>
+    </span>
+    <div classList.if="divColor == 'red' ? 'red' : 'blue'">
+        ${divColor}
     </div>
-    <div class="windowCanvas"> <!-- JHR: why is this redundent div here? it only contains the UL so it might as well not exist -->
-        <ul>
-            <li>text</li>
-            <li>text</li>
-            <li>text</li>
-        </ul>
-    </div>
+
 </div>

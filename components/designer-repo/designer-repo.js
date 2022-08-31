@@ -15,6 +15,7 @@ export class DesignerRepo extends crsbinding.classes.BindableElement{
     async connectedCallback() {
         await super.connectedCallback();
         this.loadHTML();
+        this.display = this.querySelector("#display");
 
     }
 
@@ -35,7 +36,7 @@ export class DesignerRepo extends crsbinding.classes.BindableElement{
         let var1 = await fetch(file).then(result => result.text());
         console.log(var1);
 
-        
+        this.display.innerHTML = await fetch(file).then(result => result.text());
         
         // 1. use fetch api to fetch the html
         // 2. append the html to the ul
