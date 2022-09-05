@@ -2,8 +2,7 @@
     "name": "crs-designer-api",
     "version": "0.0.8",
     "description": "",
-    "directories": {
-    },
+    "directories": {},
     "scripts": {
         "test": "jest",
         "bundle": "rollup -c",
@@ -11,5 +10,11 @@
     },
     "keywords": [],
     "author": "",
-    "license": "ISC"
+    "license": "ISC",
+    "dependencies": {
+        "express": "^4.18.1",
+        "i": "^0.3.7",
+        "live-webserver": "^1.1.0",
+        "ws": "^8.8.1"
+    }
 }
