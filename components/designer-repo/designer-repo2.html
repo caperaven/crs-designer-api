@@ -1,0 +1,73 @@
+<style>
+    designer-repo {
+        display: grid;
+        grid-template-rows: 60px auto;
+        height: 400px;
+        width: 350px;
+        border: 2px solid silver;
+        border-radius: 10px;
+    }
+
+    designer-repo ul#display {
+        display: grid;
+        list-style: none;
+        margin: 0;
+        background-color: white;
+    }
+
+    designer-repo [role="toolbar"] {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 0 0.5rem;
+    }
+
+    designer-repo .icon {
+        width: 24px;
+        height: 24px;
+        border: none;
+    }
+</style>
+
+<svg display="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="filter" width="24" height="24">
+        <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M8.986 13.5V21c0 1.65 1.356 3 3.014 3 1.658 0 3.015-1.35 3.015-3v-7.5s5.17-6.615 8.666-11.085c.77-.99.06-2.415-1.205-2.415H1.51C.259 0-.45 1.425.319 2.415 3.816 6.885 8.986 13.5 8.986 13.5Zm-7.473-12 5.64 7.213 3.022 3.865-1.19.922 1.19-.92.318.405V21c0 .822.682 1.5 1.507 1.5.826 0 1.507-.678 1.507-1.5v-8.015l.318-.406 3.022-3.866 5.64-7.213H1.513Z"/>
+    </symbol>
+
+    <symbol id="grid">
+        <path d="M1.946 10C.869 10 0 10.893 0 12s.87 2 1.946 2c1.077 0 1.946-.893 1.946-2s-.87-2-1.946-2Zm0-8C.869 2 0 2.893 0 4s.87 2 1.946 2c1.077 0 1.946-.893 1.946-2s-.87-2-1.946-2Zm0 16C.869 18 0 18.907 0 20s.882 2 1.946 2 1.946-.907 1.946-2-.87-2-1.946-2Zm5.19 3.333h15.567c.713 0 1.297-.6 1.297-1.333s-.584-1.333-1.297-1.333H7.135c-.713 0-1.297.6-1.297 1.333s.584 1.333 1.297 1.333Zm0-8h15.567c.713 0 1.297-.6 1.297-1.333s-.584-1.333-1.297-1.333H7.135c-.713 0-1.297.6-1.297 1.333s.584 1.333 1.297 1.333ZM5.837 4c0 .733.584 1.333 1.297 1.333h15.568C23.416 5.333 24 4.733 24 4s-.584-1.333-1.297-1.333H7.135c-.713 0-1.297.6-1.297 1.333Z"/>
+    </symbol>
+
+    <symbol id="list">
+        <path d="M24 21.333V2.667C24 1.2 22.8 0 21.333 0H2.667A2.675 2.675 0 0 0 0 2.667v18.666C0 22.8 1.2 24 2.667 24h18.666C22.8 24 24 22.8 24 21.333ZM7.867 14.64l2.8 3.373 4.133-5.32a.67.67 0 0 1 1.067.014l4.68 6.24a.666.666 0 0 1-.534 1.066H4.027a.664.664 0 0 1-.52-1.08l3.32-4.266a.658.658 0 0 1 1.04-.027Z"/>
+    </symbol>
+</svg>
+
+
+<div role="toolbar">
+    <svg role="button" id="filter-btn" class="icon">
+        <use href="#filter"></use>
+    </svg>
+    <input type="text" aria-label="filter-text" placeholder="Type To Filter Widget">
+    <div class="spacer"></div>
+    <button>
+        <svg class="icon">
+            <use href="#grid"></use>
+        </svg>
+    </button>
+    <button>
+        <svg class="icon">
+            <use href="#list"></use>
+        </svg>
+    </button>
+</div>
+<ul id="display" ref="container">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+    <li>7</li>
+</ul>
