@@ -6,6 +6,8 @@
  */
 
 export class DesignerRepo extends crsbinding.classes.BindableElement{
+    static get observedAttribute() {return ["data-repo"]};
+
     get html() {
         return import.meta.url.replace(".js", ".html");
 
@@ -13,12 +15,18 @@ export class DesignerRepo extends crsbinding.classes.BindableElement{
 
     async connectedCallback() {
         await super.connectedCallback();
-        // this.display = this.querySelector("#display");
-        this.loadHTML();
+        // this.loadHTML();
+        await crs.call("dom_interactive", "enable_resize", {
+            element: this,
+            resize_query : ".resize",
+            options: {}
+        })
     }
 
     async disconnectedCallback () {
-        // this.display = null;
+        await crs.call("dom_interactive", "disable_resize", {
+            element: this
+        })
         await super.disconnectedCallback();
     }
 
@@ -26,24 +34,34 @@ export class DesignerRepo extends crsbinding.classes.BindableElement{
         this.setProperty ("displayStatus", "grid");
     }
 
-    displayStatusChanged() {
-        this.loadHTML()
+    async displayStatusChanged(newValue) {
+        console.log(newValue)
+        await this.loadHTML()
     }
 
 
     async loadHTML () {
         const status = this.getProperty("displayStatus");
+
+        if(status == null || this.dataset.repo == null) {
+            return ;
+        }
         const file = `/templates/designer-repo/${this.dataset.repo}-${status}.html`;
 
-        // let var1 = await fetch(file).then(result => result.text());
-        // console.log(var1);
+        this.container.innerHTML = await fetch(file).then(result => result.text());
 
-        // this.display.innerHTML = await fetch(file).then(result => result.text());
+    }
 
-    // this.container.innerHTML = await fetch(file).then(result => result.text());
+    async attributeChangedCallback() {
 
-    // 1. use fetch api to fetch the html
-    // 2. append the html to the ul
+        await this.loadHTML()
+    }
+
+    async filterChanged(newValue) {
+        await crs.call("dom_collection", "filter_children", {
+            element: this.container,
+            filter: newValue
+        })
     }
 }
 
