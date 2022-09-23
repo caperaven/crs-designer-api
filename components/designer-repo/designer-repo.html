@@ -61,7 +61,8 @@
 
     designer-repo [role="toolbar"] button {
         border: 0;
-        padding: 0.4rem 0.6rem 0 0.6rem;
+        width: 3rem;
+        padding-top: 0.2rem;
         height: 80%;
     }
 
@@ -90,7 +91,7 @@
 
     designer-repo ul.list li {
         border-bottom: 1px solid #D5D5D5;
-        padding: 0.7rem 1.5rem ;
+        padding: 0.5rem 0 ;
         margin: 0 0.5rem;
         list-style: none;
     }
@@ -112,16 +113,16 @@
         background-color: white;
     }
 
-    .scrollbar::-webkit-scrollbar-track {
+    designer-repo .scrollbar::-webkit-scrollbar-track {
         padding: 2px 0;
         background-color: transparent;
     }
 
-    .scrollbar::-webkit-scrollbar {
+    designer-repo .scrollbar::-webkit-scrollbar {
         width: 5px;
     }
 
-    .scrollbar::-webkit-scrollbar-thumb {
+    designer-repo .scrollbar::-webkit-scrollbar-thumb {
         border-radius: 10px;
         box-shadow: inset 0 0 6px rgba(0,0,0,.3);
         background-color: transparent;
@@ -133,7 +134,6 @@
         width: 100px;
     }
 
-
     designer-repo .resize {
         position: absolute;
         right: 0.5rem;
@@ -141,7 +141,6 @@
         cursor: nwse-resize;
         scale: 0.6;
     }
-
 
 </style>
 
@@ -171,37 +170,30 @@
             </clipPath>
         </defs>
     </symbol>
-
 </svg>
 
-
 <div role="toolbar">
-    <svg role="button" id="filter-btn" class="icon filter" >
+    <svg id="filter-btn" class="icon filter" >
         <use href="#filter"></use>
     </svg>
-    <input id="text-input" class="text-input" type="text" aria-label="filter-text" placeholder="Type To Filter Widget"
+    <input data-id="text-input" class="text-input" type="text" aria-label="filter-text" placeholder="Type To Filter Widget"
            value.bind="filter"/>
     <div class="spacer"></div>
-    <button id="grid-btn" class="round-left" aria-pressed.if="displayStatus == 'grid' ? true : false"
+    <button data-id="grid-btn" class="round-left" aria-pressed.if="displayStatus == 'grid' ? true : false"
             click.setvalue="displayStatus = 'grid'">
         <svg class="icon">
             <use href="#grid"></use>
         </svg>
     </button>
-    <button id="list-btn" class="round-right" click.setvalue="displayStatus = 'list'"
+    <button data-id="list-btn" class="round-right" click.setvalue="displayStatus = 'list'"
             aria-pressed.if="displayStatus == 'list' ? true : false">
         <svg class="icon">
             <use href="#list"></use>
         </svg>
     </button>
 </div>
-<ul id="display" ref="container" classList.if="displayStatus == 'grid' ? 'grid' : 'list'" class="scrollbar">
+<ul data-id="display" ref="container" classList.if="displayStatus == 'grid' ? 'grid' : 'list'" class="scrollbar">
 </ul>
 <svg class="icon resize">
     <use href="#resize"></use>
 </svg>
-
-
-
-
-

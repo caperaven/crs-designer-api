@@ -1,21 +1,12 @@
-/**
- * JHR: Code order is wrong.
- * First properties
- * Then Lifecycle events (constructor, connectedCallback, disconnectedCallback)
- * Then Methods
- */
-
 export class DesignerRepo extends crsbinding.classes.BindableElement{
     static get observedAttribute() {return ["data-repo"]};
 
     get html() {
         return import.meta.url.replace(".js", ".html");
-
     }
 
     async connectedCallback() {
         await super.connectedCallback();
-        // this.loadHTML();
         await crs.call("dom_interactive", "enable_resize", {
             element: this,
             resize_query : ".resize",
@@ -30,17 +21,7 @@ export class DesignerRepo extends crsbinding.classes.BindableElement{
         await super.disconnectedCallback();
     }
 
-    preLoad () {
-        this.setProperty ("displayStatus", "grid");
-    }
-
-    async displayStatusChanged(newValue) {
-        console.log(newValue)
-        await this.loadHTML()
-    }
-
-
-    async loadHTML () {
+    async #loadHTML () {
         const status = this.getProperty("displayStatus");
 
         if(status == null || this.dataset.repo == null) {
@@ -49,12 +30,19 @@ export class DesignerRepo extends crsbinding.classes.BindableElement{
         const file = `/templates/designer-repo/${this.dataset.repo}-${status}.html`;
 
         this.container.innerHTML = await fetch(file).then(result => result.text());
+    }
 
+    preLoad () {
+        this.setProperty ("displayStatus", "grid");
+    }
+
+    async displayStatusChanged(newValue) {
+        await this.#loadHTML()
     }
 
     async attributeChangedCallback() {
 
-        await this.loadHTML()
+        await this.#loadHTML()
     }
 
     async filterChanged(newValue) {
