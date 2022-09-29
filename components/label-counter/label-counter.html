@@ -1,21 +1,25 @@
 <style>
     label-counter {
         --border-color: 2px solid rgba(0, 0, 0, 0.2);
-    }
-
-    label-counter,
-    .container {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
+        display: block;
+        width: max-content;
+        user-select: none;
     }
 
     label-counter div.container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
         border: var(--border-color);
         border-radius: 12px;
         border-radius: 5px;
         padding: 0.25rem;
         margin: 0 0.5rem 0 0.5rem;
+    }
+
+    label-counter [role="button"] {
+        cursor: pointer;
     }
 
     label-counter svg * {

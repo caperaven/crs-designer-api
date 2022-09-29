@@ -63,20 +63,17 @@
     </footer>
 
     <script type="module">
-        import "./packages/crs-binding/crs-binding.js";
-        import "./packages/crs-modules/crs-modules.js";
-        import "./packages/crs-router/crs-router.js";
-        import "./packages/crs-process-api/crs-process-api.js";
-        import IndexViewModel from "./index.js";
+        import {init} from "./packages/crs-framework/crs-framework.js";
+
+        await init({ router: true });
 
         async function load() {
-            document.viewModel = new IndexViewModel(document.body);
-
-            window.addEventListener("load", (event) => {
-                document.viewModel.connectedCallback();
-            });
+            const module = await import("./index.js");
+            document.viewModel = new module.default(document.body);
+            await document.viewModel.connectedCallback();
         }
-        load();
+
+        await load();
     </script>
 </body>
 </html>

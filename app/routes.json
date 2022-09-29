@@ -18,6 +18,11 @@
       "hasStyle": true
     },
     {
+      "title": "Label Counter",
+      "hash": "#label-counter",
+      "view": "label-counter"
+    },
+    {
       "title": "CSS Grid",
       "hash": "#css-grid",
       "view": "css-grid"
