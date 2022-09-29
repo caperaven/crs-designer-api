@@ -23,6 +23,11 @@
       "view": "css-grid"
     },
     {
+      "title": "Grid Preview",
+      "hash": "#grid-preview",
+      "view": "grid-preview"
+    },
+    {
       "title": "404",
       "hash": "#404",
       "view": "404",
