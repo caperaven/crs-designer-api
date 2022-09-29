@@ -38,12 +38,16 @@ describe("label-counter tests", () => {
         const btnDecrease = instance.querySelector('[data-id="decrease"]');
         const label = instance.querySelector("[data-id='value']");
 
-        await instance.clicked({ target: btnIncrease, stopPropagation: () => {} });
+        let propagation = true;
+        await instance.clicked({ target: btnIncrease, stopPropagation: () => {propagation = false} });
         assertEquals(instance.counter, 2);
         assertEquals(label.textContent, 2);
+        assertEquals(propagation, false);
 
-        await instance.clicked({ target: btnDecrease, stopPropagation: () => {} });
+        propagation = true;
+        await instance.clicked({ target: btnDecrease, stopPropagation: () => {propagation = false} });
         assertEquals(instance.counter, 1);
         assertEquals(label.textContent, 1);
+        assertEquals(propagation, false);
     })
 })
