@@ -3,6 +3,7 @@
         display: grid;
         width: 500px;
         height: 500px;
+<<<<<<< Updated upstream
         grid-template-columns: repeat(6, 2fr);
         border: 1px solid silver;
     }
@@ -13,3 +14,20 @@
 <button click.call="drawGrid">Draw Grid</button>
 
 <div class="grid" data-rows.attr="rows" data-columns.attr="columns"></div>
+=======
+        grid-template-columns: repeat(6, 1fr);
+        /*grid-template-rows: repeat(6, 1fr);*/
+    }
+</style>
+
+<h2>${title}</h2>
+
+<button click.call="addRow">Add Row</button>
+<button click.call="addColumn">Add Column</button>
+
+<grid-preview data-rows.attr="rows" data-columns.attr="columns"></grid-preview>
+<button click.call="drawGrid">Grid</button>
+<div class = "grid">
+
+</div>
+>>>>>>> Stashed changes
