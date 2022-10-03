@@ -114,7 +114,7 @@ await packageMarkup("./app/routes.json", "./dist/app/routes.json", true);
 await packageHTML("./app/404/404.html", "./dist/app/404/404.html", true);
 await packageHTML("./app/about/about.html", "./dist/app/about/about.html", true);
 await packageHTML("./app/form/form.html", "./dist/app/form/form.html", true);
-await packageHTML("./app/welcome/label-counter.html", "./dist/app/welcome/label-counter.html", true);
+await packageHTML("./app/welcome/grid-preview.html", "./dist/app/welcome/grid-preview.html", true);
 
 // css files
 await bundleCss("./styles/styles.css", "./dist/styles/styles.css", true);
@@ -125,7 +125,7 @@ await packageMarkup("./styles/views/welcome.css", "./dist/styles/views/welcome.c
 // js files
 await bundleJs("./index.js", "./dist/index.js", true);
 await packageFile("./app/form/form.js", "./dist/app/form/form.js", "js", "esm", true);
-await packageFile("./app/welcome/label-counter.js", "./dist/app/welcome/label-counter.js", "js", "esm", true);
+await packageFile("./app/welcome/grid-preview.js", "./dist/app/welcome/grid-preview.js", "js", "esm", true);
 
 // copy files
 await packageHTML("./index.html", "./dist/index.html", true);
