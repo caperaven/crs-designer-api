@@ -1,4 +1,4 @@
-export class LabelCounter extends HTMLElement {
+export class GridPreview extends crsbinding.classes.BindableElement {
     async connectedCallback() {
         await super.connectedCallback();
         this.innerHTML = await fetch(import.meta.url.replace(".js", ".html")).then(result => result.text());
@@ -25,29 +25,25 @@ export class LabelCounter extends HTMLElement {
         console.log(this.rowCount);
     }
 
-    async drawGrid() {
-        let grid = document.querySelector(".grid")
-        let rowCount = 0;
-        for(let i=0; i < 4; i++) {
-            let col = document.createElement("div")
-            col.style.width = "100px";
-            col.style.height = "100px";
-            col.style.backgroundColor = "blue";
-            col.style.border = "1px solid silver";
-            col.style.color="white";
-            col.textContent = "hello";
-            col.setAttribute("data-col", i)
-            grid.appendChild(col);
-            for(let x=0; x <4; x++) {
-                let row = document.createElement("div")
-                row.style.width = "100px";
-                row.style.height = "100px";
-                row.style.backgroundColor = "limegreen";
-                row.style.border = "1px solid silver";
-                row.setAttribute("data-row", x)
-                grid.appendChild(row);
-            }
+    async createGrid() {
+        let grid = document.querySelector(".grid");
+
+        for(let i = 0; i < 24; i++) {
+             await crs.call("dom", "create_element", {
+                 "parent" : grid,
+                "tag_name" : "div",
+                "styles" : {
+                    "width" : "100px",
+                    "height" : "100px",
+                },
+                "dataset" : {
+                    "column" : "1"
+                },
+                "text-content" : "Hello World",
+            })
         }
     }
 
 }
+
+customElements.define("grid-preview", GridPreview)

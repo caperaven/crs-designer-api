@@ -1,4 +1,4 @@
-export default class GridPreview extends crsbinding.classes.ViewBase {
+export default class GridPreview1 extends crsbinding.classes.ViewBase {
     async connectedCallback() {
         await super.connectedCallback();
         this.colCount = 0;
@@ -52,5 +52,24 @@ export default class GridPreview extends crsbinding.classes.ViewBase {
             }
         }
     }
+
+    // async test() {
+    //     let grid = document.querySelector(".grid");
+    //
+    //     for(let i = 0; i < 24; i++) {
+    //          await crs.call("dom", "create_element", {
+    //              "parent" : grid,
+    //             "tag_name" : "div",
+    //             "styles" : {
+    //                 "width" : "100px",
+    //                 "height" : "100px",
+    //             },
+    //             "dataset" : {
+    //                 "column" : "1"
+    //             },
+    //             "text-content" : "Hello World",
+    //         })
+    //     }
+    // }
 
 }
