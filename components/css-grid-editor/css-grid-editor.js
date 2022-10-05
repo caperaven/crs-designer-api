@@ -6,11 +6,9 @@ export class CssGridEditor extends crsbinding.classes.BindableElement {
         await super.connectedCallback();
         this.innerHTML = await fetch(import.meta.url.replace(".js", ".html")).then(result => result.text());
 
-
         requestAnimationFrame(() => {          
             this.clickedHandler = this.clicked.bind(this);
             this.querySelector('[data-id="top-toolbar"]').addEventListener("click", this.clickedHandler);
-
         })
 
 
@@ -19,8 +17,6 @@ export class CssGridEditor extends crsbinding.classes.BindableElement {
     //     this.setProperty("columns", 2);
     //     this.setProperty("rows", 1);
     // }
-
-
 
     async disconnectedCallback() {
         this.querySelector('[data-id="top-toolbar"]').removeEventListener("click", this.clickedHandler);
@@ -99,7 +95,6 @@ export class CssGridEditor extends crsbinding.classes.BindableElement {
     //
     //         for (let x = 0; x <2; x ++) {
     //             console.log("row" + x)
-    //
     //         }
     //     }
     // }

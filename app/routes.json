@@ -28,9 +28,9 @@
       "view": "css-grid"
     },
     {
-      "title": "Grid Preview",
-      "hash": "#grid-preview",
-      "view": "grid-preview"
+      "title": "Grid Test",
+      "hash": "#grid-test",
+      "view": "grid-test"
     },
     {
       "title": "404",

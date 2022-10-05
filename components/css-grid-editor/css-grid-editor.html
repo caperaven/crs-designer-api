@@ -181,15 +181,15 @@
         color: #fff;
     }
 
-    css-grid-editor input:checked + .slider {
+    css-grid-editor input:checked+.slider {
         background-color: #2196f3;
     }
 
-    css-grid-editor input:checked + .slider:before {
+    css-grid-editor input:checked+.slider:before {
         transform: translateX(20px);
     }
 
-    css-grid-editor input:checked + .slider:after {
+    css-grid-editor input:checked+.slider:after {
         /*content: "on";*/
         left: 8px;
     }
@@ -213,7 +213,7 @@
 <div data-id="top-toolbar" class="header" role="toolbar">
     <h2 class="logo">Layout Grid</h2>
     <button data-action="desktop" id="desktop">Desktop</button>
-<!--    <button data-action="mobile" id="mobile">Mobile</button>-->
+    <!--    <button data-action="mobile" id="mobile">Mobile</button>-->
 
 
     <div class="spacer"></div>
@@ -225,7 +225,8 @@
     <div id="increment-text"> Show Increments</div>
 
     <label-counter data-id="row-counter" class="rows" data-label="Rows" change.call="rowCountChanged"></label-counter>
-    <label-counter data-id="column-counter" class="columns" data-label="Columns" change.call="columnCountChanged"></label-counter>
+    <label-counter data-id="column-counter" class="columns" data-label="Columns" change.call="columnCountChanged">
+    </label-counter>
     <button class="toolbar-button" data-action="reset" data-id="reset" id="reset">Reset</button>
     <button class="toolbar-button" data-id="properties" id="properties">
         <svg data-action="properties" viewBox="0 0 24 24" width="16" height="16" xmlns="http://www.w3.org/2000/svg">
@@ -247,7 +248,7 @@
     </button>
 </div>
 <div class="grid" id="grid">
-    <grid-preview class = "grid-window" data-rows.attr="rows" data-columns.attr="columns"></grid-preview>
+    <grid-preview></grid-preview>
 </div>
 <div class="footer" role="toolbar">
     <button data-action="apply" id="apply">Apply</button>
