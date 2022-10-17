@@ -23,6 +23,11 @@
       "view": "label-counter"
     },
     {
+      "title": "Designer Repo Test",
+      "hash": "#designer-repo-test",
+      "view": "designer-repo-test"
+    },
+    {
       "title": "CSS Grid",
       "hash": "#css-grid",
       "view": "css-grid"
