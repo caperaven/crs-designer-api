@@ -9,6 +9,7 @@ export class CssGridEditor extends crsbinding.classes.BindableElement {
         requestAnimationFrame(() => {          
             this.clickedHandler = this.clicked.bind(this);
             this.querySelector('[data-id="top-toolbar"]').addEventListener("click", this.clickedHandler);
+
         })
 
 
@@ -83,21 +84,7 @@ export class CssGridEditor extends crsbinding.classes.BindableElement {
         console.log(event);
     }
 
-    // async drawGrid() {
-    //
-    //     let gridWindow = this.querySelector(".grid");
-    //
-    //     for(let i = 0; i < 2; i ++){
-    //         console.log("col" + i)
-    //         let newCol = this.createElement("div")
-    //         newCol.style.width = "10px";
-    //         gridWindow.appendChild(newCol);
-    //
-    //         for (let x = 0; x <2; x ++) {
-    //             console.log("row" + x)
-    //         }
-    //     }
-    // }
+
 }
 
 customElements.define("css-grid-editor", CssGridEditor);

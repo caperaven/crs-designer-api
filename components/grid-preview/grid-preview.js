@@ -9,6 +9,7 @@ export class GridPreview extends crsbinding.classes.BindableElement {
         requestAnimationFrame(() => {
             this.clickHandler = this.clicked.bind(this);  
             this.addEventListener("click", this.clickHandler);
+            this.#drawGrid();
         });
 
     }
@@ -47,19 +48,19 @@ export class GridPreview extends crsbinding.classes.BindableElement {
         }
     }
 
-    async addColumn() {
-        const columns = this.getProperty("columns");
-        this.setProperty("columns", columns + 1);
-        this.colCount = this.colCount +1;
-        console.log(this.colCount);
-    }
-
-    async addRow() {
-        const rows = this.getProperty("rows");
-        this.setProperty("rows", rows + 1);
-        this.rowCount = this.rowCount +1;
-        console.log(this.rowCount);
-    }
+    // async addColumn() {
+    //     const columns = this.getProperty("columns");
+    //     this.setProperty("columns", columns + 1);
+    //     this.colCount = this.colCount +1;
+    //     console.log(this.colCount);
+    // }
+    //
+    // async addRow() {
+    //     const rows = this.getProperty("rows");
+    //     this.setProperty("rows", rows + 1);
+    //     this.rowCount = this.rowCount +1;
+    //     console.log(this.rowCount);
+    // }
 
     // async createGrid(event) {
         // for(let i = 0; i < 24; i++) {
@@ -87,31 +88,41 @@ export class GridPreview extends crsbinding.classes.BindableElement {
         //     console.log(row);
         // }
         // }
-        async drawGrid() {
-            // let grid = document.querySelector(".grid1")
-            // let rowCount = 0;
-            for(let i=0; i < 4; i++) {
-                let col = document.createElement("div")
-                col.style.width = "100px";
-                col.style.height = "100px";
-                col.style.backgroundColor = "blue";
-                col.style.border = "1px solid silver";
-                col.style.color="white";
-                col.textContent = "hello";
-                col.setAttribute("data-col", i)
-                this.gridWindow.appendChild(col);
+        // async drawGrid() {
+        //     // let grid = document.querySelector(".grid1")
+        //     // let rowCount = 0;
+        //     for(let i=0; i < 4; i++) {
+        //         let col = document.createElement("div")
+        //         col.style.width = "100px";
+        //         col.style.height = "100px";
+        //         col.style.backgroundColor = "blue";
+        //         col.style.border = "1px solid silver";
+        //         col.style.color="white";
+        //         col.textContent = "hello";
+        //         col.setAttribute("data-col", i)
+        //         this.gridWindow.appendChild(col);
+        //
+        //         for(let x=0; x <4; x++) {
+        //             let row = document.createElement("div")
+        //             row.style.width = "100px";
+        //             row.style.height = "100px";
+        //             row.style.backgroundColor = "limegreen";
+        //             row.style.border = "1px solid silver";
+        //             row.setAttribute("data-row", x)
+        //             this.gridWindow.appendChild(row);
+        //         }
+        //     }
+        // }
 
-                for(let x=0; x <4; x++) {
-                    let row = document.createElement("div")
-                    row.style.width = "100px";
-                    row.style.height = "100px";
-                    row.style.backgroundColor = "limegreen";
-                    row.style.border = "1px solid silver";
-                    row.setAttribute("data-row", x)
-                    this.gridWindow.appendChild(row);
-                }
-            }
-        }
+    async #drawGrid() {
+        this.element = document.querySelector("#grid");
+        // await crs.call("cssgrid", "auto_fill", {
+        //     element : this.element,
+        //     columns: "2fr 2fr 2fr",
+        //     rows: "1fr 1fr"
+        // })
+
+    }
     
 
 }

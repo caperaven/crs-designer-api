@@ -1,19 +1,19 @@
 <style>
     grid-preview .grid-window {
         display: grid;
-        width: 500px;
-        height: 500px;
-        grid-template-columns: repeat(6, 1fr);
-        border: 1px solid silver;
-        background-color: #00adff;
+        /*width: 500px;*/
+        /*height: 500px;*/
+        /*grid-template-columns: repeat(6, 1fr);*/
+        /*border: 1px solid silver;*/
+        /*background-color: #00adff;*/
     }
 </style>
 
 
 
-<button id="add-row" click.call="addRow">Add Row</button>
-<button id="add-col" click.call="addColumn">Add Column</button>
-<button id="build-grid" click.call="createGrid">Grid</button>
-<div class="grid-window" ref="gridWindow" class="grid-window" data-rows.attr="rows" data-columns.attr="columns">
+<!--<button id="add-row" click.call="addRow">Add Row</button>-->
+<!--<button id="add-col" click.call="addColumn">Add Column</button>-->
+<button id="build-grid" click.call="#drawGrid">Grid</button>
+<div class="grid-window" ref="gridWindow" class="grid-window" data-rows.attr="rows" data-columns.attr="columns" >
 
 </div>

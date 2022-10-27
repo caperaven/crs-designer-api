@@ -30,6 +30,14 @@ export class DesignerRepo extends crsbinding.classes.BindableElement{
         const file = `/templates/designer-repo/${this.dataset.repo}-${status}.html`;
 
         this.container.innerHTML = await fetch(file).then(result => result.text());
+        const filter = this.getProperty("filter");
+        if((filter || "").length > 0 ) {
+            for(const child of this.container.children){
+                if(child.dataset.tags.indexOf(filter) == -1) {
+                    child.setAttribute("hidden", "hidden");
+                }
+            }
+        }
     }
 
     preLoad () {
