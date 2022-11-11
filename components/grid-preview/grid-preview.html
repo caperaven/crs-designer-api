@@ -1,11 +1,10 @@
 <style>
-    grid-preview .grid-window {
+    .grid-window {
         display: grid;
-        /*width: 500px;*/
-        /*height: 500px;*/
-        /*grid-template-columns: repeat(6, 1fr);*/
-        /*border: 1px solid silver;*/
-        /*background-color: #00adff;*/
+        height: 500px;
+        width: 100%;
+        gap: 10px;
+
     }
 </style>
 
@@ -13,7 +12,7 @@
 
 <!--<button id="add-row" click.call="addRow">Add Row</button>-->
 <!--<button id="add-col" click.call="addColumn">Add Column</button>-->
-<button id="build-grid" click.call="#drawGrid">Grid</button>
-<div class="grid-window" ref="gridWindow" class="grid-window" data-rows.attr="rows" data-columns.attr="columns" >
+<!--<button id="build-grid" click.call="#drawGrid">Grid</button>-->
+<div class="grid-window" data-id="grid-window" data-rows.attr="rows" data-columns.attr="columns" >
 
 </div>

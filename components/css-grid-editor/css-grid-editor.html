@@ -81,15 +81,17 @@
         pointer-events: none;
     }
 
-    css-grid-editor .grid {
-        background-color: var(--white-background-color);
-        height: 600px;
-        width: 100%;
-        border: var(--border-color);
-        border-radius: var(--border-radius);
-        justify-content: center;
-        display: grid;
-    }
+    /*css-grid-editor .grid {*/
+    /*    background-color: var(--white-background-color);*/
+    /*    height: 80% ;*/
+    /*    width: 100%;*/
+    /*    border: var(--border-color) ;*/
+    /*    !*border-radius: var(--border-radius);*!*/
+    /*    gap: 5px;*/
+    /*    justify-content: center;*/
+    /*    display: grid;*/
+    /*    !*overflow: scroll;*!*/
+    /*}*/
 
     css-grid-editor .footer {
         height: 48px;
@@ -213,6 +215,15 @@
         display: flex;
         flex-direction: row;
         align-items: center;
+    }
+
+    css-grid-editor .grid-cell {
+        background-color: #00adff;
+        border-width: 2px;
+        border-color: #2F3545;
+        border-style: dashed;
+        display: grid;
+        gap: 5px;
     }
 </style>
 

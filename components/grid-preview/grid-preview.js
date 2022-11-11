@@ -15,8 +15,8 @@ export class GridPreview extends crsbinding.classes.BindableElement {
     }
 
     preLoad() {
-        this.setProperty("rows", 1);
-        this.setProperty("columns", 1);
+        // this.setProperty("rows", 1);
+        // this.setProperty("columns", 1);
         console.log("page loaded");
     }
 
@@ -115,12 +115,12 @@ export class GridPreview extends crsbinding.classes.BindableElement {
         // }
 
     async #drawGrid() {
-        this.element = document.querySelector("#grid");
-        // await crs.call("cssgrid", "auto_fill", {
-        //     element : this.element,
-        //     columns: "2fr 2fr 2fr",
-        //     rows: "1fr 1fr"
-        // })
+        this.element = document.querySelector("[data-id='grid-window']");
+        await crs.call("cssgrid", "auto_fill", {
+            element : this.element,
+            columns: "2fr 2fr",
+            rows: "1fr 1fr"
+        })
 
     }
     
