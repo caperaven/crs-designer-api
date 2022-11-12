@@ -81,14 +81,17 @@
         pointer-events: none;
     }
 
-    css-grid-editor .grid {
-        background-color: var(--white-background-color);
-        height: 600px;
-        width: 100%;
-        border: var(--border-color);
-        border-radius: var(--border-radius);
-        justify-content: center;
-    }
+    /*css-grid-editor .grid {*/
+    /*    background-color: var(--white-background-color);*/
+    /*    height: 80% ;*/
+    /*    width: 100%;*/
+    /*    border: var(--border-color) ;*/
+    /*    !*border-radius: var(--border-radius);*!*/
+    /*    gap: 5px;*/
+    /*    justify-content: center;*/
+    /*    display: grid;*/
+    /*    !*overflow: scroll;*!*/
+    /*}*/
 
     css-grid-editor .footer {
         height: 48px;
@@ -128,15 +131,119 @@
         background-color: var(--white-background-color);
         align-items: center;
     }
+
+    css-grid-editor .toggle-container {
+        position: relative;
+        display: inline-block;
+        height: 25px;
+        width: 50px;
+        pointer-events: none;
+    }
+
+    css-grid-editor .toggle-container input {
+        opacity: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: all;
+    }
+
+    css-grid-editor .slider {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        cursor: pointer;
+        background-color: #808080;
+        transition: 0.4s;
+        pointer-events: none;
+    }
+
+    css-grid-editor .slider::before {
+        content: "";
+        position: absolute;
+        height: 18px;
+        width: 18px;
+        left: 6px;
+        bottom: 4px;
+        background-color: #fff;
+        transition: 0.2s;
+        pointer-events: none;
+    }
+
+    css-grid-editor .slider::after {
+        position: absolute;
+        /*content: "off";*/
+        height: 18px;
+        width: 18px;
+        right: 6px;
+        bottom: 4px;
+        transition: 0.2s;
+        pointer-events: none;
+        color: #fff;
+    }
+
+    css-grid-editor input:checked+.slider {
+        background-color: #2196f3;
+    }
+
+    css-grid-editor input:checked+.slider:before {
+        transform: translateX(20px);
+    }
+
+    css-grid-editor input:checked+.slider:after {
+        /*content: "on";*/
+        left: 8px;
+    }
+
+    css-grid-editor .slider.round {
+        border-radius: 34px;
+    }
+
+    css-grid-editor .slider.round:before {
+        border-radius: 50%;
+    }
+
+    css-grid-editor div#increment-text {
+        margin-right: 30px;
+        margin-left: 10px;
+        padding-right: 10px;
+        border-right: 1px solid silver;
+    }
+
+    css-grid-editor label-counter {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    css-grid-editor .grid-cell {
+        background-color: #00adff;
+        border-width: 2px;
+        border-color: #2F3545;
+        border-style: dashed;
+        display: grid;
+        gap: 5px;
+    }
 </style>
 
 <div data-id="top-toolbar" class="header" role="toolbar">
     <h2 class="logo">Layout Grid</h2>
     <button data-action="desktop" id="desktop">Desktop</button>
-    <button data-action="mobile" id="mobile">Mobile</button>
+    <!--    <button data-action="mobile" id="mobile">Mobile</button>-->
+
+
     <div class="spacer"></div>
-    <label-counter class="rows" data-label="Rows"></label-counter>
-    <label-counter class="columns" data-label="Columns"></label-counter>
+
+    <div class="toggle-container">
+        <input type="checkbox" />
+        <div class="slider round"></div>
+    </div>
+    <div id="increment-text"> Show Increments</div>
+
+    <label-counter data-id="row-counter" class="rows" data-label="Rows" change.call="rowCountChanged"></label-counter>
+    <label-counter data-id="column-counter" class="columns" data-label="Columns" change.call="columnCountChanged">
+    </label-counter>
     <button class="toolbar-button" data-action="reset" data-id="reset" id="reset">Reset</button>
     <button class="toolbar-button" data-id="properties" id="properties">
         <svg data-action="properties" viewBox="0 0 24 24" width="16" height="16" xmlns="http://www.w3.org/2000/svg">
@@ -157,7 +264,9 @@
         </svg>
     </button>
 </div>
-<div class="grid" id="grid">CENTER</div>
+<div class="grid" id="grid">
+    <grid-preview></grid-preview>
+</div>
 <div class="footer" role="toolbar">
     <button data-action="apply" id="apply">Apply</button>
     <button data-action="cancel" id="cancel">Cancel</button>

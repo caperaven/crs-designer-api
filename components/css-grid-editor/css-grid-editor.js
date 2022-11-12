@@ -1,20 +1,30 @@
-import "./../../components/label-counter/label-counter.js"
+import "./../../components/label-counter/label-counter.js";
+import "./../../components/grid-preview/grid-preview.js";
 
-export class CssGridEditor extends HTMLElement {
+export class CssGridEditor extends crsbinding.classes.BindableElement {
     async connectedCallback() {
+        await super.connectedCallback();
         this.innerHTML = await fetch(import.meta.url.replace(".js", ".html")).then(result => result.text());
-        
-        
+
         requestAnimationFrame(() => {          
             this.clickedHandler = this.clicked.bind(this);
             this.querySelector('[data-id="top-toolbar"]').addEventListener("click", this.clickedHandler);
+
         })
+
+
     }
+    // preLoad() {
+    //     this.setProperty("columns", 2);
+    //     this.setProperty("rows", 1);
+    // }
 
     async disconnectedCallback() {
         this.querySelector('[data-id="top-toolbar"]').removeEventListener("click", this.clickedHandler);
         this.clickedHandler = null;
     }
+
+
 
     async clicked(event){
         if(event.target.dataset.action != null){
@@ -54,6 +64,27 @@ export class CssGridEditor extends HTMLElement {
     async apply(event){
         console.log("ToDo: apply event");
     }
+
+    // async addColumn() {
+    //     let columnValue = this.querySelector("[data-label='Columns']").value;
+    //     let col = this.getProperty("[data-label='Columns']".value)  // getting value of 5 ? ({contextId: 5})
+    //     console.log(columnValue);
+    //     console.log(col);
+    // }
+
+    async columnCountChanged(event) {
+        console.log(event);
+    }
+
+    // async addRow() {
+    //     let rowValue = this.querySelector("[data-label='Rows']").value;
+    // }
+
+    async rowCountChanged(event) {
+        console.log(event);
+    }
+
+
 }
 
 customElements.define("css-grid-editor", CssGridEditor);

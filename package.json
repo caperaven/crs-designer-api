@@ -7,7 +7,8 @@
     "scripts": {
         "test": "jest",
         "bundle": "rollup -c",
-        "build-publish": "node build/publish.js"
+        "build-publish": "node build/publish.js",
+        "run": "caddy run"
     },
     "keywords": [],
     "author": "",
